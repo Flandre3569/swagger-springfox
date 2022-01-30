@@ -9,6 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * 会扫描当前类所在包及子包中所有的类型中的注解，做swagger文档的定制。
  */
 @SpringBootApplication
+@EnableSwagger2
 public class MyApp {
     public static void main(String[] args) {
         SpringApplication.run(MyApp.class, args);
