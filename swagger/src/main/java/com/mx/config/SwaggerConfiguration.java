@@ -4,6 +4,7 @@ import com.mx.annotation.Annotation4Swagger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -39,6 +40,9 @@ public class SwaggerConfiguration {
                         RequestHandlerSelectors.withMethodAnnotation(Annotation4Swagger.class) // 当方法上有所给参数的注解时，返回true
                 ))
                 .apis(RequestHandlerSelectors.basePackage("com.mx.controller")) // 设定扫描哪个包中的注解(包含其子包)
+                .paths(
+                        PathSelectors.regex("/swagger/.*") // 使用正则表达式，约束生成API文档的路径地址
+                )
                 .build(); // 重新构建Docket对象
         return docket;
     }
