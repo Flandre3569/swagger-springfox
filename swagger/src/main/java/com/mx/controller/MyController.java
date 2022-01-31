@@ -1,5 +1,6 @@
 package com.mx.controller;
 
+import com.mx.annotation.Annotation4Swagger;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ public class MyController {
         return "get";
     }
 
+    @Annotation4Swagger
     @RequestMapping("/req")
     public String req(String m) {
         return "req";
